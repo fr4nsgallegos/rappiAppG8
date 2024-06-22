@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     variable = preferences.getString('username') ??
         "No ha sido asignada ningun valor a username";
     userName = preferences.getString("username") ?? "";
-    nombreProducto = preferences.getString("nombreProducto") ?? "";
+    nombreProducto = preferences.getString("nombreProducto") ?? nombreProducto;
     precio = preferences.getDouble("precio") ?? 0.0;
     setState(() {});
     print(variable);
