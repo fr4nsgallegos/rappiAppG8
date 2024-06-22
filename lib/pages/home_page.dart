@@ -58,11 +58,9 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(onPressed: () async {
           SharedPreferences preferences = await SharedPreferences.getInstance();
-          preferences.setBool("firstTime", true);
-          setState(() {});
-          // print(userName);
-          // print(precio);
-          // print(variable);
+          // preferences.setBool("firstTime", true);
+          //ELIMINANDO VARIABLE DE SHARED PREFERENCES
+          preferences.remove("firstTime");
         }),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
