@@ -1,15 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:rappiappg8/pages/cart_page.dart';
+import 'package:rappiappg8/pages/shop_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _activePageIndex = 0;
+  String nombreProducto = "Hambuerguesa doble";
+
+  List<Widget> _pages = [
+    ShopPage(),
+    CartPage(),
+  ];
+
+  void navigationBottomIndex(int index) {
+    _activePageIndex = index;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          nombreProducto = "Makis";
+          setState(() {});
+        }),
         appBar: AppBar(
-            // leading: Container(),
-            // automaticallyImplyLeading: false,
-            ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            nombreProducto,
+            style: TextStyle(color: Colors.orange),
+          ),
+          // leading: Container(),
+          // automaticallyImplyLeading: false,
+        ),
         bottomNavigationBar: GNav(
           color: Colors.grey[400],
           activeColor: Colors.orange,
@@ -19,9 +49,9 @@ class HomePage extends StatelessWidget {
           tabBorderRadius: 16,
           gap: 8,
           // padding: EdgeInsets.all(8),
-
           onTabChange: (index) {
             print(index);
+            navigationBottomIndex(index);
           },
           tabs: [
             GButton(
@@ -34,6 +64,7 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
+        body: _pages[_activePageIndex],
       ),
     );
   }

@@ -9,7 +9,7 @@ void main() {
     MaterialApp(
       // home: InitPage(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/init',
       routes: {
         '/': (context) => LoggedInPage(isLoogedIn: true),
         '/init': (context) => InitPage(),
