@@ -22,11 +22,13 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _buildLoginButton() {
+  _buildLoginButton(BuildContext contextooooo) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(contextooooo, "/home");
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
@@ -78,7 +80,7 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                _buildLoginButton(),
+                _buildLoginButton(context),
               ],
             ),
           ),
