@@ -56,10 +56,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          print(userName);
-          print(precio);
-          print(variable);
+        floatingActionButton: FloatingActionButton(onPressed: () async {
+          SharedPreferences preferences = await SharedPreferences.getInstance();
+          preferences.setBool("firstTime", true);
+          setState(() {});
+          // print(userName);
+          // print(precio);
+          // print(variable);
         }),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
